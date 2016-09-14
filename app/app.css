@@ -1,0 +1,41 @@
+body{
+	height: 100vh;
+	background-image: url(components/weather/Clouds.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	box-sizing: border-box;
+	padding: 10px 60px;
+	text-align: center;
+}
+
+.time{
+	font-size: 6em;
+	color: white;
+	text-shadow: 1px 1px 4px #333;
+	margin: 0;
+}
+
+.data{
+	background-color: rgba(255, 255, 255, 1);
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	color: #555;
+	box-shadow: 1px 1px 3px #555;
+}
+
+.date{
+	color: white;
+	text-shadow: 1px 1px 4px #333;
+	margin: 0;
+}
+
+.low{
+	color: rgb(51, 190, 205);
+}
+
+.high{
+	color: rgb(231, 80, 80);
+}

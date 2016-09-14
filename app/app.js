@@ -8,40 +8,41 @@ WeatherApp.filter('farenheit', function() {
 	}
 })
 
-WeatherApp.controller('WeatherController', function(){
-	this.data = {
-		"coord":{"lon":-95.94,"lat":41.26},
-		"weather":[{
-			"id":501,
-			"main":"Rain",
-			"description":"moderate rain",
-			"icon":"10d"},
-			{"id":701,
-			"main":"Mist",
-			"description":"mist",
-			"icon":"50d"}],
-		"base":"stations",
-		"main":{"temp":288.14,
-				"pressure":1020,
-				"humidity":87,
-				"temp_min":286.48,
-				"temp_max":289.15},
-		"visibility":11265,
-		"wind":{"speed":5.1,"deg":360},
-		"rain":{"1h":2.03},
-		"clouds":{"all":90},
-		"dt":1473778718,
-		"sys":{
-			"type":1,
-			"id":1918,
-			"message":0.0313,
-			"country":"US",
-			"sunrise":1473768201,
-			"sunset":1473813262},
-		"id":5074472,
-		"name":"Omaha",
-		"cod":200
-	}
-})
+WeatherApp.directive('weatherData', function(){
+	// Runs during compile
+	return {
+		controller: function($http, $scope, $interval){
 
-//dummy JSON
+			$scope.data = new Object();
+
+			var hover = false;
+
+			//getData();
+
+			//$interval(getData(),600000)
+
+			function getData() {
+				$http.get('http://api.openweathermap.org/data/2.5/weather?id=5074472&APPID=0aa45db4ad14dde4654b8554739f9f2e').
+					then(function(response) {
+						$scope.data = response.data;
+						document.body.style.backgroundImage = "url(components/weather/"+$scope.data.weather[0].main+".jpg)";
+						debugger;
+					})
+			}
+		},
+		restrict: 'E',
+		templateUrl: 'components/weather/weather-data.html'
+	};
+});
+
+WeatherApp.controller('TimeController', function($interval, $scope){
+
+	$scope.time = new Date().getTime();
+
+	$interval(function() {
+		$scope.time = new Date().getTime();
+	}, 1000)
+
+	console.log($scope.time)
+
+})
