@@ -1,7 +1,8 @@
-<h1 class="time" ng-mouseenter="hover = true" ng-mouseleave="hover = false">{{this.data.main.temp | farenheit}}&deg;</h1>
+<h1 class="big" ng-mouseenter="hover = true" ng-mouseleave="hover = false">{{this.data.main.temp | farenheit}}&deg;</h1>
 
-<h3 class="lo-hi" ng-show="hover === true">Low: <span class="low">{{this.data.main.temp_min | farenheit}}&deg;</span> 
+<h2 class="small" ng-show="hover === true">Low: <span class="low">{{this.data.main.temp_min | farenheit}}&deg;</span><br>
 	High: <span class="high">{{this.data.main.temp_max | farenheit}}&deg;</span>
-</h3>
+</h2>
 
-<p ng-show="hover === true">The humidity is {{this.data.main.humidity}}% and the pressure is {{this.data.main.pressure}}mb.</p>
+<h2 class="small" ng-show="hover === true">Humidity: {{this.data.main.humidity}}%<br>
+Pressure: {{this.data.main.pressure}}mb</h2>

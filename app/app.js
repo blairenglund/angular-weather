@@ -17,9 +17,7 @@ WeatherApp.directive('weatherData', function(){
 
 			var hover = false;
 
-			//getData();
-
-			//$interval(getData(),600000)
+			$interval(getData(),600000)
 
 			function getData() {
 				$http.get('http://api.openweathermap.org/data/2.5/weather?id=5074472&APPID=0aa45db4ad14dde4654b8554739f9f2e').
@@ -38,6 +36,8 @@ WeatherApp.directive('weatherData', function(){
 WeatherApp.controller('TimeController', function($interval, $scope){
 
 	$scope.time = new Date().getTime();
+
+	var hover = false;
 
 	$interval(function() {
 		$scope.time = new Date().getTime();

@@ -6,30 +6,48 @@ body{
 	background-size: cover;
 	box-sizing: border-box;
 	padding: 10px 60px;
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	font-family: 'Quicksand', monospace;
 }
 
-.time{
-	font-size: 6em;
+.left-side{
+	text-align: right;
+	flex-shrink: 1;
+	width: 315px;
+	margin-top: 10%;
+}
+
+.right-side{
+	text-align: left;
+	flex-shrink: 1;
+	width: 315px;
+	margin-top: 10%;
+}
+
+.big{
+	font-size: 7em;
 	color: white;
 	text-shadow: 1px 1px 4px #333;
 	margin: 0;
+	font-weight: 400;
 }
 
-.data{
-	background-color: rgba(255, 255, 255, 1);
-	padding: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 500px;
-	color: #555;
-	box-shadow: 1px 1px 3px #555;
-}
-
-.date{
+.and{
+	font-size: 7em;
 	color: white;
 	text-shadow: 1px 1px 4px #333;
 	margin: 0;
+	font-weight: 400;
+	margin-top: 10%;
+}
+
+.small{
+	color: white;
+	text-shadow: 1px 1px 4px #333;
+	margin: 0;
+	font-weight: 700;
 }
 
 .low{

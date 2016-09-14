@@ -9,13 +9,17 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,700" rel="stylesheet">
 </head>
 <body>
-  <div ng-controller="TimeController as timeCtrl">
-    <h1 class="time">{{this.time | date : 'h:mm:ss'}}</h1>
-    <h1 class="date">{{this.time | date : 'M/dd/yy'}}</h1>  
+  <div ng-controller="TimeController as timeCtrl" class="left-side">
+    <h1 class="big" ng-mouseenter="hover = true" ng-mouseleave="hover = false">{{this.time | date : 'h:mm'}}</h1>
+    <h2 class="small" ng-show="hover === true">{{this.time | date : 'EEEE, MMM. dd, yyyy'}}</h2>
   </div>
-  <weather-data></weather-data>
+  <h1 class="and">&ensp;&amp;&ensp;</h1>
+  <div class="right-side">
+    <weather-data></weather-data>
+  </div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
 -->
