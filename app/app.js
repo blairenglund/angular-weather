@@ -24,7 +24,7 @@ WeatherApp.directive('weatherData', function(){
 					then(function(response) {
 						$scope.data = response.data;
 						document.body.style.backgroundImage = "url(components/weather/"+$scope.data.weather[0].main+".jpg)";
-						debugger;
+						console.log($scope.data);
 					})
 			}
 		},
