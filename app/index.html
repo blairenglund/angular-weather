@@ -14,7 +14,7 @@
 <body>
   <div ng-controller="TimeController as timeCtrl" class="left-side">
     <h1 class="big" ng-mouseenter="hover = true" ng-mouseleave="hover = false">{{this.time | date : 'h:mm'}}</h1>
-    <h2 class="small" ng-show="hover === true">{{this.time | date : 'EEEE, MMM. dd, yyyy'}}</h2>
+    <h2 class="small animate" ng-show="hover === true">{{this.time | date : 'EEEE, MMM. dd, yyyy'}}</h2>
   </div>
   <h1 class="and">&ensp;&amp;&ensp;</h1>
   <div class="right-side">
@@ -24,6 +24,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
 -->
 <script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

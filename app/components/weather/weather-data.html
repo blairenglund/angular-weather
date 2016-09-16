@@ -1,8 +1,8 @@
 <h1 class="big" ng-mouseenter="hover = true" ng-mouseleave="hover = false">{{this.data.main.temp | farenheit}}&deg;</h1>
 
-<h2 class="small" ng-show="hover === true">
+<h2 class="small animate" ng-show="hover === true">
 	Windspeed: {{this.data.wind.speed}} mph
 </h2>
 
-<h2 class="small" ng-show="hover === true">Humidity: {{this.data.main.humidity}}%<br>
+<h2 class="small animate" ng-show="hover === true">Humidity: {{this.data.main.humidity}}%<br>
 Pressure: {{this.data.main.pressure}} mb</h2>

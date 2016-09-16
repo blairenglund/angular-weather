@@ -50,3 +50,16 @@ body{
 	font-weight: 700;
 	transition: 0.2s all ease-in-out;
 }
+
+.animate{
+	transition: 0.2s all ease-in-out;
+}
+
+.animate.ng-hide{
+	opacity: 0;
+}
+
+
+
+
+

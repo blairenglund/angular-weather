@@ -1,6 +1,6 @@
 //create app
 //
-var WeatherApp = angular.module('WeatherApp', [])
+var WeatherApp = angular.module('WeatherApp', ['ngAnimate'])
 
 //convert Kelvin to Farenheit
 WeatherApp.filter('farenheit', function() {
