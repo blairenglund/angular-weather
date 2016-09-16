@@ -2,9 +2,17 @@
 //
 var WeatherApp = angular.module('WeatherApp', [])
 
+//convert Kelvin to Farenheit
 WeatherApp.filter('farenheit', function() {
 	return function(input) {
 		return Math.round( ( (input) * (9/5) ) - 459.67 );
+	}
+})
+
+//convert Meters/sec to Miles/Hour
+WeatherApp.filter('mph', function() {
+	return function(input) {
+		return Math.round(input * 2.2369362920544);
 	}
 })
 

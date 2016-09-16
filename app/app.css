@@ -48,12 +48,5 @@ body{
 	text-shadow: 1px 1px 4px #333;
 	margin: 0;
 	font-weight: 700;
-}
-
-.low{
-	color: rgb(51, 190, 205);
-}
-
-.high{
-	color: rgb(231, 80, 80);
+	transition: 0.2s all ease-in-out;
 }
