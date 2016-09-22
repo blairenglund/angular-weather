@@ -1,8 +1,10 @@
-<h1 class="big" ng-mouseenter="hover = true" ng-mouseleave="hover = false">{{this.data.main.temp | farenheit}}&deg;</h1>
+<h1 class="big" ng-mouseenter="hoverW = true" ng-mouseleave="hoverW = false">{{this.data.currently.temperature | number:0}}&deg;</h1>
 
-<h2 class="small animate" ng-show="hover === true">
-	Windspeed: {{this.data.wind.speed}} mph
+<h2 class="small animate" ng-show="hoverW === true">
+	{{this.data.currently.summary}}<br>
+	Feels like: {{this.data.currently.apparentTemperature | number:0}}&deg;<br>
+	Windspeed: {{this.data.currently.windSpeed}} mph<br>
+	Windbearing: {{this.data.currently.windBearing}}&deg; / {{this.data.currently.windBearing | windDirection}}<br>
+	Humidity: {{(this.data.currently.humidity)*100}}%<br>
+	Pressure: {{this.data.currently.pressure | number:0}} mb
 </h2>
-
-<h2 class="small animate" ng-show="hover === true">Humidity: {{this.data.main.humidity}}%<br>
-Pressure: {{this.data.main.pressure}} mb</h2>

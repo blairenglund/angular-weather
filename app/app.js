@@ -16,6 +16,27 @@ WeatherApp.filter('mph', function() {
 	}
 })
 
+WeatherApp.filter('windDirection', function(){
+	return function(input) {
+		if (input > 348.75 || input <= 11.25) {return 'N'}
+		else if (input > 11.25 && input <= 33.75) {return 'NNE'}
+		else if (input > 33.75 && input <= 56.25) {return 'NE'}
+		else if (input > 56.25 && input <= 78.75) {return 'ENE'}
+		else if (input > 78.75 && input <= 101.25) {return 'E'}
+		else if (input > 101.25 && input <= 123.75) {return 'ESE'}
+		else if (input > 123.75 && input <= 146.25) {return 'SE'}
+		else if (input > 146.25 && input <= 168.75) {return 'SSE'}
+		else if (input > 168.75 && input <= 191.25) {return 'S'}
+		else if (input > 191.25 && input <= 213.75) {return 'SSW'}
+		else if (input > 213.75 && input <= 236.25) {return 'SW'}
+		else if (input > 236.25 && input <= 258.75) {return 'WSW'}
+		else if (input > 258.75 && input <= 281.25) {return 'W'}
+		else if (input > 281.25 && input <= 303.75) {return 'WNW'}
+		else if (input > 303.75 && input <= 326.25) {return 'NW'}
+		else if (input > 326.25 && input <= 348.75) {return 'NNW'};
+	};
+});
+
 WeatherApp.directive('weatherData', function(){
 	// Runs during compile
 	return {
@@ -23,15 +44,16 @@ WeatherApp.directive('weatherData', function(){
 
 			$scope.data = new Object();
 
-			var hover = false;
+			var hoverW = false;
 
 			$interval(getData(),600000)
 
 			function getData() {
-				$http.get('http://api.openweathermap.org/data/2.5/weather?id=5074472&APPID=0aa45db4ad14dde4654b8554739f9f2e').
-					then(function(response) {
-						$scope.data = response.data;
-						document.body.style.backgroundImage = "url(components/weather/"+$scope.data.weather[0].main+".jpg)";
+				$http.jsonp('https://api.darksky.net/forecast/5a3138639a13bf2f4bf1dd82391de58c/41.26,-95.947?callback=JSON_CALLBACK').
+					success(function(response) {
+						debugger;
+						$scope.data = response;
+						document.body.style.backgroundImage = "url(components/weather/"+$scope.data.currently.icon+".jpg)";
 						console.log($scope.data);
 					})
 			}
@@ -41,16 +63,23 @@ WeatherApp.directive('weatherData', function(){
 	};
 });
 
-WeatherApp.controller('TimeController', function($interval, $scope){
+WeatherApp.directive('time', function(){
+	// Runs during compile
+	return {
+		controller: function($interval, $scope){
 
-	$scope.time = new Date().getTime();
+			$scope.time = new Date().getTime();
 
-	var hover = false;
+			var hoverT = false;
 
-	$interval(function() {
-		$scope.time = new Date().getTime();
-	}, 1000)
+			$interval(function() {
+				$scope.time = new Date().getTime();
+			}, 1000)
 
-	console.log($scope.time)
+			console.log($scope.time)
 
-})
+		},
+		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+		templateUrl: 'components/time/time.html',
+	};
+});

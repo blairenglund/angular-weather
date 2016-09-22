@@ -1,6 +1,6 @@
 body{
 	height: 100vh;
-	background-image: url(components/weather/Clouds.jpg);
+	background-image: url(components/weather/Cloudy.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -32,6 +32,7 @@ body{
 	text-shadow: 1px 1px 4px #333;
 	margin: 0;
 	font-weight: 400;
+	cursor: default;
 }
 
 .and{
@@ -41,6 +42,7 @@ body{
 	margin: 0;
 	font-weight: 400;
 	margin-top: 10%;
+	cursor: default;
 }
 
 .small{
