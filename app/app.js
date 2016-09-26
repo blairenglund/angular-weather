@@ -55,6 +55,9 @@ WeatherApp.directive('weatherData', function(){
 						$scope.data = response;
 						document.body.style.backgroundImage = "url(components/weather/"+$scope.data.currently.icon+".jpg)";
 						console.log($scope.data);
+					}).
+					error(function(response) {
+						console.log(response)
 					})
 			}
 		},
