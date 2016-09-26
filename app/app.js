@@ -40,26 +40,27 @@ WeatherApp.filter('windDirection', function(){
 WeatherApp.directive('weatherData', function(){
 	// Runs during compile
 	return {
-		controller: function($http, $scope, $interval){
-
-			$scope.data = new Object();
+		controller: function($http, $scope, $interval, $window){
 
 			var hoverW = false;
 
-			$interval(getData(),600000)
-
-			function getData() {
+			$scope.getData = function() {
 				$http.jsonp('https://api.darksky.net/forecast/5a3138639a13bf2f4bf1dd82391de58c/41.26,-95.947?callback=JSON_CALLBACK').
 					success(function(response) {
-						debugger;
 						$scope.data = response;
+						debugger;
 						document.body.style.backgroundImage = "url(components/weather/"+$scope.data.currently.icon+".jpg)";
 						console.log($scope.data);
 					}).
 					error(function(response) {
-						console.log(response)
+						console.log(response);
 					})
-			}
+			};
+
+			$window.addEventListener('load', $scope.getData);
+
+			$interval($scope.getData, 600000);
+			debugger;
 		},
 		restrict: 'E',
 		templateUrl: 'components/weather/weather-data.html'

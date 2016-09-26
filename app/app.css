@@ -47,7 +47,7 @@ body{
 
 .small{
 	color: white;
-	text-shadow: 1px 1px 4px #333;
+	text-shadow: 0.5px 0.5px 2px #333;
 	margin: 0;
 	font-weight: 700;
 	transition: 0.2s all ease-in-out;
